@@ -118,10 +118,18 @@ public class MainClass {
         }
     }
 
-    public  void sapXepSoTietGiangDay(){
-        for(int i=0 ; i<bangkekhai.length-1;i++){
-            MonHoc mh = new MonHoc();
-            monhoc = bangkekhai[i].getMh().getTenMon();
+   public static   void sapXepSoTietGiangDay(){
+        MonHoc m = new MonHoc();
+        for(int i=0 ; i<bangkekhai.length;i++){
+            for(int j = 0 ; j<bangkekhai[i].getMh().getTenMon().length() ; j++){
+                for(int k = j+1 ; k < bangkekhai[j].getMh().getTenMon().length();k++){
+                    if(monhoc[j].getTongSoTiet()<monhoc[k].getTongSoTiet()){
+                        m = monhoc[j];
+                        monhoc[j] = monhoc[k];
+                        monhoc[k] = m ;
+                    }
+                }
+            }
 
         }
 
