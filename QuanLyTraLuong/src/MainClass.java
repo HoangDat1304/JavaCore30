@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 public class MainClass {
 
-    public static GiangVien[] giangvien;
-    public static MonHoc[] monhoc;
-    public static BangKeKhai[] bangkekhai;
+    public static GiangVien[] giangvien=new GiangVien[1000];
+    public static MonHoc[] monhoc= new MonHoc[1000];
+    public static BangKeKhai[] bangkekhai=new BangKeKhai[1000];
     public static TrinhDo[] trinhdo;
 
 
@@ -49,11 +49,13 @@ public class MainClass {
                     inDSGV();
                     break;
                 case 5:
+                   QLMS();
                     break;
                 case 6:
                     sapXepTenGV();
                     break;
                 case 7:
+                    QLMS();
                     break;
                 case 8:
                     break;
@@ -66,7 +68,7 @@ public class MainClass {
     }
 
 
-    public void nhapDSMH() {
+    public static void nhapDSMH() {
         Scanner sc = new Scanner(System.in);
         System.out.println(" nhap danh sách môn học");
         int a = sc.nextInt();
@@ -75,18 +77,15 @@ public class MainClass {
             MonHoc mh = new MonHoc();
             mh.nhapMonHoc();
             monhoc[i] = mh;
-
         }
-
     }
-    public  void inDSMH(){
+    public static void inDSMH(){
         System.out.println(" danh sách môn học :");
         for (MonHoc m : monhoc){
             System.out.println(" danh sách môn học "+ m);
         }
-
     }
-    public  void nhapDSGV(){
+    public  static  void nhapDSGV(){
         Scanner sc = new Scanner(System.in);
         System.out.println("nhập danh sách giảng viên");
         int a = sc.nextInt();
@@ -97,28 +96,32 @@ public class MainClass {
             giangvien[i] = gv;
         }
     }
-    public  void inDSGV(){
+    public static void inDSGV(){
         System.out.println("danh sách giảng viên :");
         for(GiangVien g : giangvien){
             System.out.println(" danh sách giảng viên " + g);
         }
     }
-    public  void sapXepTenGV(){
+
+    public static void QLMS(){
+        BangKeKhai bk = new BangKeKhai();
+        bk.nhapThongKe(giangvien,bangkekhai,monhoc);
+
+    }
+    public static void sapXepTenGV(){
         BangKeKhai bkk = new BangKeKhai();
-        for(int i= 0 ; i< bangkekhai.length-1;i++){
+        for(int i= 0 ; i< bangkekhai.length;i++){
             for(int j= i+1 ; j<bangkekhai.length;j++){
                 if(bangkekhai[i].getGv().getHoTen().compareTo(bangkekhai[j].getGv().getHoTen())>0){
                     bkk = bangkekhai[i];
                     bangkekhai[i]=bangkekhai[j];
                     bangkekhai[j] = bkk;
-
                 }
-
             }
         }
     }
 
-   public static   void sapXepSoTietGiangDay(){
+   public static  void sapXepSoTietGiangDay(){
         MonHoc m = new MonHoc();
         for(int i=0 ; i<bangkekhai.length;i++){
             for(int j = 0 ; j<bangkekhai[i].getMh().getTenMon().length() ; j++){
@@ -130,12 +133,8 @@ public class MainClass {
                     }
                 }
             }
-
         }
-
     }
-
-
 }
 
 
