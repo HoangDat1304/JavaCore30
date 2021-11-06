@@ -1,0 +1,39 @@
+header{
+    color: black;
+}
+a{
+    color: black;
+}
+body{
+    background-color: rgb(233, 233, 233);   
+}
+.page{
+    margin-top: 40px;
+    margin-bottom: -25px;
+}
+footer{
+    margin-top: 70px;
+    background-color: black;
+    color: rgb(238, 220, 194);
+}
+.footer_content{
+    width: 90%;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+.footer_content a{
+    color: rgb(238, 220, 194);
+
+}
+.content{
+    width: 90%;
+    margin: auto;
+}
+.form_1
+{
+    margin-top: 80px;
+}
+
+
+
